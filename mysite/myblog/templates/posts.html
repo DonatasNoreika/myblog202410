@@ -12,6 +12,7 @@
             <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content | truncatewords:"30" }}</p>
             <p><a href="{% url 'post' post.pk %}">Skaityti daugiau</a></p>
+            <a>Komentarų: {{ post.comments_count }}</a>
             <hr>
         </div>
     </div>

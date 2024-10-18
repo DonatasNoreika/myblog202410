@@ -9,6 +9,9 @@ class Post(models.Model):
     date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
     content = models.TextField(verbose_name="Tekstas", max_length=10000)
 
+    def comments_count(self):
+        return self.comments.count()
+
     class Meta:
         verbose_name = 'Įrašas'
         verbose_name_plural = 'Įrašai'

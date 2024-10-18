@@ -11,7 +11,7 @@
             <h2><a class="class-article">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content }}</p>
             <hr>
-            <h4>Komentarai:</h4>
+            <h4>Komentarai <small>({{ post.comments_count }})</small>:</h4>
             {% if post.comments.all %}
             {% for comment in post.comments.all %}
             <small class="text-muted">{{ comment.user }}, {{ comment.date_created | date:"Y-m-d, f" }}</small>
