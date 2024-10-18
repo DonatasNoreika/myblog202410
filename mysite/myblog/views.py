@@ -3,7 +3,7 @@ from django.shortcuts import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
 from .forms import CommentForm
-from .models import Post
+from .models import Post, Comment
 
 
 # Create your views here.
@@ -46,4 +46,12 @@ class UserPostListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Post.objects.filter(user=self.request.user)
+
+class UserCommentListView(LoginRequiredMixin, generic.ListView):
+    model = Comment
+    template_name = "usercomments.html"
+    context_object_name = "comments"
+
+    def get_queryset(self):
+        return Comment.objects.filter(user=self.request.user)
 

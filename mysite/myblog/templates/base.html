@@ -38,6 +38,9 @@
                 <a class="nav-link" href="{% url 'userposts'%}">Mano įrašai</a>
             </li>
             <li class="nav-item">
+                <a class="nav-link" href="{% url 'usercomments'%}">Mano komentarai</a>
+            </li>
+            <li class="nav-item">
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
                     <button class="btn" type="submit">Atsijungti</button>

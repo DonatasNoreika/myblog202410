@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block "title" %}Mano komentarai{% endblock %}
+
+{% block "content" %}
+<h1>Mano komentarai:</h1>
+{% for comment in comments %}
+<a href="{% url 'post' comment.post.pk %}">{{ comment.post.title }}</a><br>
+<small class="text-muted">{{ comment.user }}, {{ comment.date_created | date:"Y-m-d, f" }}</small>
+<p>{{ comment.content | safe }}</p>
+<hr>
+{% endfor %}
+{% endblock %}
