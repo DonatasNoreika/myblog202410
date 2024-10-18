@@ -1,5 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -7,7 +8,7 @@ class Post(models.Model):
     title = models.CharField(verbose_name="Pavadinimas", max_length=100)
     user = models.ForeignKey(to=User, verbose_name="Autorius", on_delete=models.SET_NULL, null=True, blank=True)
     date_created = models.DateTimeField(verbose_name="Data", auto_now_add=True)
-    content = models.TextField(verbose_name="Tekstas", max_length=10000)
+    content = HTMLField(verbose_name="Tekstas", max_length=10000)
 
     def comments_count(self):
         return self.comments.count()
