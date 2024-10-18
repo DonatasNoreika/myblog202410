@@ -9,8 +9,9 @@
         <div class="article-metadata">
             <a class="mr-2">{{ post.user }}</a>
             <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
-            <h2><a class="class-article">{{ post.title }}</a></h2>
+            <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content | truncatewords:"30" }}</p>
+            <p><a href="{% url 'post' post.pk %}">Skaityti daugiau</a></p>
             <hr>
         </div>
     </div>

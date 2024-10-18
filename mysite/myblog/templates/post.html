@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block "title" %}Įrašas{% endblock %}
+
+{% block "content" %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2">{{ post.user }}</a>
+            <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
+            <h2><a class="class-article">{{ post.title }}</a></h2>
+            <p class="class-content">{{ post.content }}</p>
+            <hr>
+            <h4>Komentarai:</h4>
+            {% if post.comments.all %}
+            {% for comment in post.comments.all %}
+            <small class="text-muted">{{ comment.user }}, {{ comment.date_created | date:"Y-m-d, f" }}</small>
+            <p>{{ comment.content }}</p>
+            {% endfor %}
+            {% else %}
+            <p>Komentarų nėra</p>
+            {% endif %}
+        </div>
+    </div>
+</article>
+{% endblock %}
