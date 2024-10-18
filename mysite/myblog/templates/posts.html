@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block "title" %}PRADŽIA{% endblock %}
+
+{% block "content" %}
+{% for post in posts %}
+<article class="media content-section">
+    <div class="media-body">
+        <div class="article-metadata">
+            <a class="mr-2">{{ post.user }}</a>
+            <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
+            <h2><a class="class-article">{{ post.title }}</a></h2>
+            <p class="class-content">{{ post.content | truncatewords:"30" }}</p>
+            <hr>
+        </div>
+    </div>
+</article>
+{% endfor %}
+{% endblock %}
