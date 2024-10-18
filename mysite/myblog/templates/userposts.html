@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block "title" %}Mano įrašai{% endblock %}
+
+{% block "content" %}
+<h1>Mano įrašai:</h1>
+{% for post in posts %}
+<small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
+<h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
+<hr>
+{% endfor %}
+{% endblock %}

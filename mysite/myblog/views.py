@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -36,3 +37,13 @@ class PostDetailView(FormMixin, generic.DetailView):
             return self.form_valid(form)
         else:
             return self.form_invalid(form)
+
+
+class UserPostListView(LoginRequiredMixin, generic.ListView):
+    model = Post
+    template_name = "userposts.html"
+    context_object_name = "posts"
+
+    def get_queryset(self):
+        return Post.objects.filter(user=self.request.user)
+
