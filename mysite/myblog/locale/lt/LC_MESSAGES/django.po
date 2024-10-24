@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 11:17+0300\n"
-"PO-Revision-Date: 2024-10-24 11:17+0300\n"
+"POT-Creation-Date: 2024-10-24 11:21+0300\n"
+"PO-Revision-Date: 2024-10-24 11:22+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -46,7 +46,8 @@ msgstr "Atsijungti"
 msgid "Register"
 msgstr "Registruotis"
 
-#: .\templates\base.html:73
+#: .\templates\base.html:73 .\templates\registration\login.html:3
+#: .\templates\registration\login.html:29
 msgid "Login"
 msgstr "Prisijungti"
 
@@ -110,7 +111,7 @@ msgstr "paskutinis"
 msgid "User Profile"
 msgstr "Vartotojo profilis"
 
-#: .\templates\profile.html:9
+#: .\templates\profile.html:9 .\templates\registration\login.html:21
 msgid "Username"
 msgstr "Vartotojo vardas"
 
@@ -133,6 +134,22 @@ msgstr "Profilio Info"
 #: .\templates\profile.html:23
 msgid "Update"
 msgstr "Atnaujinti"
+
+#: .\templates\registration\login.html:8
+msgid "Login error, please try again!"
+msgstr "Prisijungimo klaida, bandykite dar kartą!"
+
+#: .\templates\registration\login.html:13
+msgid "You do not have access to this information. You must log in."
+msgstr "Neturite prieigos prie šios informacijos. Turite prisijungti."
+
+#: .\templates\registration\login.html:25
+msgid "Password"
+msgstr "Slaptažodis"
+
+#: .\templates\registration\login.html:33
+msgid "Forgot password?"
+msgstr "Pamiršote slaptažodį?"
 
 #: .\templates\userposts.html:7
 msgid "New Post"
