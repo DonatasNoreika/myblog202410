@@ -7,6 +7,7 @@
 <article class="media content-section">
     <div class="media-body">
         <div class="article-metadata">
+            <img class="rounded-circle account-img" style="width:30px" src="{{ post.user.profile.photo.url }}">
             <a class="mr-2">{{ post.user }}</a>
             <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
             <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
