@@ -10,6 +10,12 @@
             <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
             <h2><a class="class-article">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content | safe }}</p>
+            {% if post.user == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">Redaguoti</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Ištrinti</a>
+            </div>
+            {% endif %}
             <hr>
             <h4>Komentarai <small>({{ post.comments_count }})</small>:</h4>
             {% if user.is_authenticated %}
