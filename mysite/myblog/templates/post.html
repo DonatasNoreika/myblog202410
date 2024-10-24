@@ -26,6 +26,12 @@
             {% if post.comments.all %}
             {% for comment in post.comments.all %}
             <small class="text-muted">{{ comment.user }}, {{ comment.date_created | date:"Y-m-d, f" }}</small>
+            {% if comment.user == user %}
+            <div>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comments_update' comment.pk %}">Redaguoti</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Ištrinti</a>
+            </div>
+            {% endif %}
             <p>{{ comment.content | safe }}</p>
             {% endfor %}
             {% else %}

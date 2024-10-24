@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.shortcuts import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -54,4 +54,16 @@ class UserCommentListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         return Comment.objects.filter(user=self.request.user)
+
+
+class CommentUpdateView(LoginRequiredMixin, UserPassesTestMixin, generic.UpdateView):
+    model = Comment
+    template_name = "comments_form.html"
+    fields = ['content']
+
+    def get_success_url(self):
+        return reverse("post", kwargs={"pk": self.object.post.pk})
+
+    def test_func(self):
+        return self.get_object().user == self.request.user
 
