@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% block "title" %}Įrašo redagavimas{% endblock%}
+{% block "title" %}Įrašo sukūrimas/redagavimas{% endblock%}
 
 {% block "content" %}
 <div class="content-section">
     <form method="POST">
     {% csrf_token %}
     {% load crispy_forms_tags %}
-        <legend class="border-bottom mb-4">Įrašo redagavimas</legend>
+        <legend class="border-bottom mb-4">Įrašo sukūrimas/redagavimas</legend>
         {{ form | crispy }}
         <div class="form-group">
             <button class="btn btn-outline-info" type="submit">Išsaugoti</button>

@@ -10,6 +10,7 @@ urlpatterns = [
     path("usercomments/", views.UserCommentListView.as_view(), name="usercomments"),
     path("comments/<int:pk>/update", views.CommentUpdateView.as_view(), name="comments_update"),
     path("comments/<int:pk>/delete", views.CommentDeleteView.as_view(), name="comments_delete"),
+    path("posts/create", views.PostCreateView.as_view(), name="post_create"),
     path("posts/<int:pk>/update", views.PostUpdateView.as_view(), name="post_update"),
     path("posts/<int:pk>/delete", views.PostDeleteView.as_view(), name="post_delete"),
 ]

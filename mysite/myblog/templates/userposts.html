@@ -3,6 +3,9 @@
 {% block "title" %}Mano įrašai{% endblock %}
 
 {% block "content" %}
+<div>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_create' %}">Naujas įrašas</a>
+</div>
 <h1>Mano įrašai:</h1>
 {% for post in posts %}
 <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
