@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 11:26+0300\n"
-"PO-Revision-Date: 2024-10-24 11:27+0300\n"
+"POT-Creation-Date: 2024-10-24 11:32+0300\n"
+"PO-Revision-Date: 2024-10-24 11:33+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -51,6 +51,30 @@ msgstr "Registruotis"
 #: .\templates\registration\register.html:32
 msgid "Login"
 msgstr "Prisijungti"
+
+#: .\templates\comments_delete.html:3 .\templates\comments_delete.html:10
+msgid "Comment Delete"
+msgstr "Komentaro trynimas"
+
+#: .\templates\comments_delete.html:11
+msgid "Are you sure you want to delete a comment?"
+msgstr "Ar tikrai norite ištrinti komentarą?"
+
+#: .\templates\comments_delete.html:14
+msgid "Yes, Delete"
+msgstr "Taip, ištrinti"
+
+#: .\templates\comments_delete.html:15
+msgid "Cancel"
+msgstr "Atšaukti"
+
+#: .\templates\comments_form.html:3 .\templates\comments_form.html:10
+msgid "Comment Edit"
+msgstr "Komentaro redagavimas"
+
+#: .\templates\comments_form.html:13
+msgid "Submit"
+msgstr "Patvirtinti"
 
 #: .\templates\post.html:3
 msgid "Post"
