@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 11:45+0300\n"
-"PO-Revision-Date: 2024-10-24 11:46+0300\n"
+"POT-Creation-Date: 2024-10-24 11:54+0300\n"
+"PO-Revision-Date: 2024-10-24 11:56+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -250,3 +250,35 @@ msgstr "Jei užsiregistravote anksčiau, "
 #: .\templates\userposts.html:7
 msgid "New Post"
 msgstr "Naujas įrašas"
+
+#: .\views.py:130
+#, python-format
+msgid "Username %s already exists!"
+msgstr "Vartotojo vardas %s jau užregistruotas!"
+
+#: .\views.py:134
+#, python-format
+msgid "Email %s already exists!"
+msgstr "El. paštas %s jau užregistruotas!"
+
+#: .\views.py:144
+#, python-format
+msgid "User %s registered!"
+msgstr "Vartotojas %s jau užregistruotas!"
+
+#: .\views.py:148
+msgid "Passwords do not match!"
+msgstr "Slaptažodžiai nesutampa!"
+
+#: .\views.py:159
+msgid "Email cannot be empty"
+msgstr "El. pašto adresas negali būti tuščias"
+
+#: .\views.py:162
+#, python-format
+msgid "User with e-mail %s already registered!!"
+msgstr "Vartotojas su el. paštu %s jau užsiregistravo!!"
+
+#: .\views.py:167
+msgid "Profile updated!"
+msgstr "Profilis atnaujintas!"

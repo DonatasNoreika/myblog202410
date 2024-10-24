@@ -9,6 +9,7 @@ from django.views.generic.edit import FormMixin
 from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
 from .models import Post, Comment
 from django.contrib import messages
+from django.utils.translation import gettext as _
 
 # Create your views here.
 
@@ -119,38 +120,34 @@ class PostDeleteView(LoginRequiredMixin, UserPassesTestMixin, generic.DeleteView
 @csrf_protect
 def register(request):
     if request.method == "POST":
-        # pasiimame reikšmes iš registracijos formos
         username = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
         password2 = request.POST['password2']
-        # tikriname, ar sutampa slaptažodžiai
         if password == password2:
-            # tikriname, ar neužimtas username
             if User.objects.filter(username=username).exists():
-                messages.error(request, f'Vartotojo vardas {username} užimtas!')
-                return redirect('register')
+                # messages.error(request, f"Vartotojas vardas {username} užimtas!")
+                messages.error(request, _('Username %s already exists!') % username)
+                return redirect("register")
             else:
-                # tikriname, ar nėra tokio pat email
                 if User.objects.filter(email=email).exists():
-                    messages.error(request, f'Vartotojas su el. paštu {email} jau užregistruotas!')
-                    return redirect('register')
+                    messages.error(request, _('Email %s already exists!') % email)
+                    return redirect("register")
                 else:
                     try:
                         password_validation.validate_password(password)
-                    except password_validation.ValidationError as e:
-                        for error in e:
+                    except password_validation.ValidationError as err:
+                        for error in err:
                             messages.error(request, error)
-                        return redirect('register')
-
-                    # jeigu viskas tvarkoje, sukuriame naują vartotoją
+                        return redirect("register")
                     User.objects.create_user(username=username, email=email, password=password)
-                    messages.info(request, f'Vartotojas {username} užregistruotas!')
-                    return redirect('login')
+                    messages.info(request, _('User %s registered!') % username)
+                    return redirect("login")
+
         else:
-            messages.error(request, 'Slaptažodžiai nesutampa!')
-            return redirect('register')
-    return render(request, 'registration/register.html')
+            messages.error(request, _('Passwords do not match!'))
+            return redirect("register")
+    return render(request, template_name="registration/register.html")
 
 @login_required
 def profile(request):
@@ -159,15 +156,15 @@ def profile(request):
         p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
         new_email = request.POST['email']
         if new_email == "":
-            messages.error(request, f'El. paštas negali būti tuščias!')
+            messages.error(request, _("Email cannot be empty"))
             return redirect('profile')
         if request.user.email != new_email and User.objects.filter(email=new_email).exists():
-            messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
+            messages.error(request, _('User with e-mail %s already registered!!') % new_email)
             return redirect('profile')
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.info(request, f"Profilis atnaujintas")
+            messages.info(request, _('Profile updated!'))
             return redirect('profile')
 
 
