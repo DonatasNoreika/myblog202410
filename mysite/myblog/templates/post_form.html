@@ -1,15 +1,16 @@
 {% extends "base.html" %}
-{% block "title" %}Įrašo sukūrimas/redagavimas{% endblock%}
+{% load i18n %}
+{% block "title" %}{% trans "Post Create/Edit" %}{% endblock %}
 
 {% block "content" %}
 <div class="content-section">
     <form method="POST">
     {% csrf_token %}
     {% load crispy_forms_tags %}
-        <legend class="border-bottom mb-4">Įrašo sukūrimas/redagavimas</legend>
+        <legend class="border-bottom mb-4">{% trans "Post Create/Edit" %}</legend>
         {{ form | crispy }}
         <div class="form-group">
-            <button class="btn btn-outline-info" type="submit">Išsaugoti</button>
+            <button class="btn btn-outline-info" type="submit">{% trans "Submit" %}</button>
         </div>
     </form>
 </div>

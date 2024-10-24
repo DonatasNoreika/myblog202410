@@ -1,17 +1,18 @@
 {% extends "base.html" %}
-{% block "title" %}Įrašo trynimas{% endblock%}
+{% load i18n %}
+{% block "title" %}{% trans "Post Delete" %}{% endblock %}
 {% block "content" %}
 <div class="content-section">
     <form method="POST">
         {% load crispy_forms_tags %}
         {% csrf_token %}
         <fieldset class="form-group">
-        <legend class="border-bottom mb-4">Įrašo trynimas</legend>
-            <h2>Ar tikrai norite ištrinti įrašą "{{ post.title }}"?</h2>
+        <legend class="border-bottom mb-4">{% trans "Post Delete" %}</legend>
+            <h2>{% trans "Are you sure you want to delete a post" %} "{{ post.title }}"?</h2>
         </fieldset>
         <div class="form-group">
-            <button class="btn btn-outline-danger" type="submit">Taip, ištrinti</button>
-            <a class="btn btn-outline-secondary" href="{% url 'post' post.pk %}">Atšaukti</a>
+            <button class="btn btn-outline-danger" type="submit">{% trans "Yes, Delete" %}</button>
+            <a class="btn btn-outline-secondary" href="{% url 'post' post.pk %}">{% trans "Cancel" %}</a>
         </div>
     </form>
 </div>
