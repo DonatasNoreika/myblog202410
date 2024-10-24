@@ -13,7 +13,7 @@
             {% if post.user == user %}
             <div>
                 <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">Redaguoti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Ištrinti</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post_delete' post.pk %}">Ištrinti</a>
             </div>
             {% endif %}
             <hr>
