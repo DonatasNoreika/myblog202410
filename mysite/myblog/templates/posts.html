@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}PRADŽIA{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "HOME" %}{% endblock %}
 
 {% block "content" %}
 {% for post in posts %}
@@ -12,8 +12,8 @@
             <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
             <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
             <p class="class-content">{{ post.content | truncatewords:"30" | safe }}</p>
-            <p><a href="{% url 'post' post.pk %}">Skaityti daugiau</a></p>
-            <a>Komentarų: {{ post.comments_count }}</a>
+            <p><a href="{% url 'post' post.pk %}">{% trans "Read More" %}</a></p>
+            <a>{% trans "Comments" %}: {{ post.comments_count }}</a>
             <hr>
         </div>
     </div>
@@ -22,17 +22,17 @@
 <div class="pagination">
     <span class="step-links">
         {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; pirmas</a>
-            <a href="?page={{ page_obj.previous_page_number }}">atgal</a>
+            <a href="?page=1">&laquo; {% trans "first" %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}">{% trans "previous" %}</a>
         {% endif %}
 
         <span class="current">
-            {{ page_obj.number }} iš {{ page_obj.paginator.num_pages }}
+            {{ page_obj.number }} {% trans "of" %} {{ page_obj.paginator.num_pages }}
         </span>
 
         {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">pirmyn</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">paskutinis &raquo;</a>
+            <a href="?page={{ page_obj.next_page_number }}">{% trans "next" %}</a>
+            <a href="?page={{ page_obj.paginator.num_pages }}">{% trans "last" %} &raquo;</a>
         {% endif %}
     </span>
 </div>

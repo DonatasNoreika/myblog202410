@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 10:45+0300\n"
-"PO-Revision-Date: 2024-10-24 10:46+0300\n"
+"POT-Creation-Date: 2024-10-24 10:50+0300\n"
+"PO-Revision-Date: 2024-10-24 10:51+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -47,3 +47,35 @@ msgstr "Registruotis"
 #: .\templates\base.html:73
 msgid "Login"
 msgstr "Prisijungti"
+
+#: .\templates\posts.html:3
+msgid "HOME"
+msgstr "PRADŽIA"
+
+#: .\templates\posts.html:15
+msgid "Read More"
+msgstr "Skaityti daugiau"
+
+#: .\templates\posts.html:16
+msgid "Comments"
+msgstr "Komentarų"
+
+#: .\templates\posts.html:25
+msgid "first"
+msgstr "pirmas"
+
+#: .\templates\posts.html:26
+msgid "previous"
+msgstr "atgal"
+
+#: .\templates\posts.html:30
+msgid "of"
+msgstr "iš"
+
+#: .\templates\posts.html:34
+msgid "next"
+msgstr "pirmyn"
+
+#: .\templates\posts.html:35
+msgid "last"
+msgstr "paskutinis"
