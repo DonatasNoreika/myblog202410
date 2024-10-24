@@ -11,7 +11,7 @@
   {% load static %}
 </head>
 <body>
-
+{% load i18n %}
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light static-top mb-5 shadow">
   <div class="container">
@@ -19,14 +19,14 @@
       <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-file-text-fill" viewBox="0 0 16 16">
       <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2M5 4h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m-.5 2.5A.5.5 0 0 1 5 6h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5M5 8h6a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1m0 2h3a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1"/>
     </svg>
-    Mano tinklaraštis</a>
+        {% trans "My Blog" %}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'posts' %}">Įrašai</a>
+              <a class="nav-link" href="{% url 'posts' %}">{% trans "Posts" %}</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link">
@@ -54,23 +54,23 @@
               </svg>
             {{ user.get_username }}</a></li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'userposts'%}">Mano įrašai</a>
+                <a class="nav-link" href="{% url 'userposts'%}">{% trans "My Posts" %}</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'usercomments'%}">Mano komentarai</a>
+                <a class="nav-link" href="{% url 'usercomments'%}">{% trans "My Comments" %}</a>
             </li>
             <li class="nav-item">
                 <form method="post" action="{% url 'logout' %}">
                     {% csrf_token %}
-                    <button class="btn" type="submit">Atsijungti</button>
+                    <button class="btn" type="submit">{% trans "Logout" %}</button>
                 </form>
             </li>
           {% else %}
              <li class="nav-item">
-                <a class="nav-link" href="{% url 'register'%}">Registruotis</a>
+                <a class="nav-link" href="{% url 'register'%}">{% trans "Register" %}</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'login'%}">Prisijungti</a>
+                <a class="nav-link" href="{% url 'login'%}">{% trans "Login" %}</a>
               </li>
           {% endif %}
         </ul>
