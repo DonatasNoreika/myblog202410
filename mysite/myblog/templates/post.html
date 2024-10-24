@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block "title" %}Įrašas{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "Post" %}{% endblock %}
 
 {% block "content" %}
 <article class="media content-section">
@@ -13,20 +13,20 @@
             <p class="class-content">{{ post.content | safe }}</p>
             {% if post.user == user %}
             <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">Redaguoti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post_delete' post.pk %}">Ištrinti</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_update' post.pk %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post_delete' post.pk %}">{% trans "Delete" %}</a>
             </div>
             {% endif %}
             <hr>
-            <h4>Komentarai <small>({{ post.comments_count }})</small>:</h4>
+            <h4>{% trans "Comments" %} <small>({{ post.comments_count }})</small>:</h4>
             {% if user.is_authenticated %}
             <div class="fieldWrapper">
                 <hr><br/>
-                <h1>Palikite atsiliepimą</h1>
+                <h1>{% trans "Leave a Comment" %}</h1>
                 <form action="" method="post">
                     {% csrf_token %}
                     {{ form.content }}<br/>
-                    <input type="submit" value="Paskelbti">
+                    <input type="submit" value='{% trans "Publish" %}'>
                 </form>
             </div>
             {% endif %}
@@ -36,14 +36,14 @@
             <small class="text-muted">{{ comment.user }}, {{ comment.date_created | date:"Y-m-d, f" }}</small>
             {% if comment.user == user %}
             <div>
-                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comments_update' comment.pk %}">Redaguoti</a>
-                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comments_delete' comment.pk %}">Ištrinti</a>
+                <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'comments_update' comment.pk %}">{% trans "Edit" %}</a>
+                <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'comments_delete' comment.pk %}">{% trans "Delete" %}</a>
             </div>
             {% endif %}
             <p>{{ comment.content | safe }}</p>
             {% endfor %}
             {% else %}
-            <p>Komentarų nėra</p>
+            <p>{% trans "No comments" %}</p>
             {% endif %}
         </div>
     </div>

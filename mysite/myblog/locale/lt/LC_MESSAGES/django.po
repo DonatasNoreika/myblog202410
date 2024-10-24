@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 10:54+0300\n"
-"PO-Revision-Date: 2024-10-24 10:54+0300\n"
+"POT-Creation-Date: 2024-10-24 10:58+0300\n"
+"PO-Revision-Date: 2024-10-24 10:59+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -49,6 +49,34 @@ msgstr "Registruotis"
 msgid "Login"
 msgstr "Prisijungti"
 
+#: .\templates\post.html:3
+msgid "Post"
+msgstr "Skelbti"
+
+#: .\templates\post.html:16 .\templates\post.html:39
+msgid "Edit"
+msgstr "Redaguoti"
+
+#: .\templates\post.html:17 .\templates\post.html:40
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: .\templates\post.html:21 .\templates\posts.html:16
+msgid "Comments"
+msgstr "Komentarų"
+
+#: .\templates\post.html:25
+msgid "Leave a Comment"
+msgstr "Palikite atsiliepimą"
+
+#: .\templates\post.html:29
+msgid "Publish"
+msgstr "Skelbti"
+
+#: .\templates\post.html:46
+msgid "No comments"
+msgstr "Nėra komentarų"
+
 #: .\templates\posts.html:3
 msgid "HOME"
 msgstr "PRADŽIA"
@@ -56,10 +84,6 @@ msgstr "PRADŽIA"
 #: .\templates\posts.html:15
 msgid "Read More"
 msgstr "Skaityti daugiau"
-
-#: .\templates\posts.html:16
-msgid "Comments"
-msgstr "Komentarų"
 
 #: .\templates\posts.html:25
 msgid "first"
