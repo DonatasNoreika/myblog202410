@@ -1,11 +1,12 @@
 from django.contrib.auth import password_validation
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
 from django.shortcuts import reverse, redirect, render
 from django.views import generic
 from django.views.decorators.csrf import csrf_protect
 from django.views.generic.edit import FormMixin
-from .forms import CommentForm
+from .forms import CommentForm, UserUpdateForm, ProfileUpdateForm
 from .models import Post, Comment
 from django.contrib import messages
 
@@ -142,3 +143,30 @@ def register(request):
             messages.error(request, 'Slaptažodžiai nesutampa!')
             return redirect('register')
     return render(request, 'registration/register.html')
+
+@login_required
+def profile(request):
+    if request.method == "POST":
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
+        new_email = request.POST['email']
+        if new_email == "":
+            messages.error(request, f'El. paštas negali būti tuščias!')
+            return redirect('profile')
+        if request.user.email != new_email and User.objects.filter(email=new_email).exists():
+            messages.error(request, f'Vartotojas su el. paštu {new_email} jau užregistruotas!')
+            return redirect('profile')
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.info(request, f"Profilis atnaujintas")
+            return redirect('profile')
+
+
+    u_form = UserUpdateForm(instance=request.user)
+    p_form = ProfileUpdateForm(instance=request.user.profile)
+    context = {
+        'u_form': u_form,
+        'p_form': p_form,
+    }
+    return render(request, "profile.html", context=context)
