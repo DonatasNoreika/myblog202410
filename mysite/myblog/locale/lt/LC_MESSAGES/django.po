@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-24 10:50+0300\n"
-"PO-Revision-Date: 2024-10-24 10:51+0300\n"
+"POT-Creation-Date: 2024-10-24 10:54+0300\n"
+"PO-Revision-Date: 2024-10-24 10:54+0300\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: lt\n"
@@ -28,7 +28,8 @@ msgstr "Mano tinklaraštis"
 msgid "Posts"
 msgstr "Įrašai"
 
-#: .\templates\base.html:57
+#: .\templates\base.html:57 .\templates\userposts.html:3
+#: .\templates\userposts.html:9
 msgid "My Posts"
 msgstr "Mano įrašai"
 
@@ -79,3 +80,7 @@ msgstr "pirmyn"
 #: .\templates\posts.html:35
 msgid "last"
 msgstr "paskutinis"
+
+#: .\templates\userposts.html:7
+msgid "New Post"
+msgstr "Naujas įrašas"

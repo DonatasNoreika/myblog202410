@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
-{% block "title" %}Mano įrašai{% endblock %}
+{% load i18n %}
+{% block "title" %}{% trans "My Posts" %}{% endblock %}
 
 {% block "content" %}
 <div>
-    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_create' %}">Naujas įrašas</a>
+    <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post_create' %}">{% trans "New Post" %}</a>
 </div>
-<h1>Mano įrašai:</h1>
+<h1>{% trans "My Posts" %}:</h1>
 {% for post in posts %}
 <small class="text-muted">{{ post.date_created | date:"Y-m-d, f" }}</small>
 <h2><a class="class-article" href="{% url 'post' post.pk %}">{{ post.title }}</a></h2>
